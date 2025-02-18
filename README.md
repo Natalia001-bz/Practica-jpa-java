@@ -17,11 +17,11 @@ spring.jpa.properties.hibernate.format_sql=true
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 
 ---->      NOTA:
-           -  Línea 1 →  Jpa es el nombre del proyecto 
-           -  Línea 2 →  Configuro update porque compara lo que hay en mi BD y actualiza las diferencias, si le pusiera create, reemplazaria lo que tengo en mi BD por lo que cree en mi proyecto cada vez.
-           -  Línea 3 →   bd_jpa hace alusión a la base de datos relacional que deseo vincular
-           -  Línea 4 →   si tengo otro userName (en phpMyadmin) o más de uno, debo colocarlo 
-           -  Línea 5 →   Colocar contraseña de mi gestor de BD, si no tengo dejarlo vacío
+-  Línea 1 →  Jpa es el nombre del proyecto 
+-  Línea 2 →  Configuro update porque compara lo que hay en mi BD y actualiza las diferencias, si le pusiera create, reemplazaria lo que tengo en mi BD por lo que cree en mi proyecto cada vez.
+-  Línea 3 →   bd_jpa hace alusión a la base de datos relacional que deseo vincular
+-  Línea 4 →   si tengo otro userName (en phpMyadmin) o más de uno, debo colocarlo 
+-  Línea 5 →   Colocar contraseña de mi gestor de BD, si no tengo dejarlo vacío
 
 --- 
 
@@ -39,13 +39,13 @@ DEPENDENCIAS :
 - H2 Database
 
 #####   De igual manera se puede inicializar el proyecto desde Spring tool suite
-      - file → new → Spring Started Project 
-      - se colocan las configuraciones : nombre, maven, lenguaje,  versión jdk, extension de empaquetamiento (jar o war)
-      - ----> next 
-      - Se adicionan las dependencias a utilizar 
-      - ---->  finish
+- file → new → Spring Started Project 
+- se colocan las configuraciones : nombre, maven, lenguaje,  versión jdk, extension de empaquetamiento (jar o war)
+- ----> next 
+- Se adicionan las dependencias a utilizar 
+ - ---->  finish
       
-
+---
 ####  Spring JPA
 -  para trabajar el **tema de persistencia**, primero se debe tener creada una base de datos con la cual se quiere conectar el proyecto
 -  JPA lo que hace es crear las tablas que esten notadas con JPA en nuestro proyecto
@@ -55,12 +55,11 @@ DEPENDENCIAS :
 -  **Se gestionan transacciones y consultas**, permite ejecutar operaciones CRUD, utilizar JPQL(*Java Persistence Query Lenguage) y criterios par aconsultar datos.
 ---->      NOTA:
            **HIBERNATE**
-           - Es una imp'lementación de LPA y uno de los OMR (*Object RElational MApping*) más populares de Java.
-           - Funciona como un **puente** entre el modelo de objetos en java y la base de datos relacional.
-           - Hace que la persistencia sea transparente (sincronizada) y  se automatice el mapeo (traduce operaciones Crud sobre objetos en sentencias SQL.
+  - Es una imp'lementación de LPA y uno de los OMR (*Object RElational MApping*) más populares de Java.
+  - Funciona como un **puente** entre el modelo de objetos en java y la base de datos relacional.
+  - Hace que la persistencia sea transparente (sincronizada) y  se automatice el mapeo (traduce operaciones Crud sobre objetos en sentencias SQL.
 
-
-
+---
 
 ### *Conceptos*
 Inversión de Control (IoC):
@@ -77,25 +76,25 @@ Es una técnica que permite implementar el principio de Inversión de Control. C
 La entidad representa una tabla en la base de datos. Se anota con @Entity y, opcionalmente, se puede usar @Table para definir el nombre de la tabla. Cada campo de la entidad se corresponde con una columna.
 
 ---->   NOTA: 
-        - Se usan anotaciones de Lombok (como @Getter, @Setter, etc.) para reducir el código repetitivo. Si no lo usas, deberás generar manualmente los métodos getters, setters, constructores y toString.
-        - La anotación @GeneratedValue se utiliza para generar automáticamente el valor del identificador.
+- Se usan anotaciones de Lombok (como @Getter, @Setter, etc.) para reducir el código repetitivo. Si no lo usas, deberás generar manualmente los métodos getters, setters, constructores y toString.
+- La anotación @GeneratedValue se utiliza para generar automáticamente el valor del identificador.
 
 2. Repositorio (Repository)
 El repositorio es la capa de acceso a datos. Se extiende de JpaRepository para poder utilizar métodos CRUD y consultas personalizadas.
 ---->    NOTA:
-         - La anotación @Repository permite que Spring reconozca esta interfaz como un componente de acceso a datos.
+- La anotación @Repository permite que Spring reconozca esta interfaz como un componente de acceso a datos.
 
 3. Servicio (Service)
 La capa de servicio contiene la lógica de negocio. Aquí se inyecta el repositorio y se exponen métodos que el controlador utilizará.
 ---->     NOTA:
-          - Se usa @Service para definir esta clase como un componente de negocio.
-          - La inyección de dependencias se realiza con @Autowired para obtener una instancia del repositorio.
+- Se usa @Service para definir esta clase como un componente de negocio.
+- La inyección de dependencias se realiza con @Autowired para obtener una instancia del repositorio.
 
 4. Controlador REST (RestController)
 El controlador se encarga de exponer los endpoints (puntos de acceso) de la API. Se anota con @RestController y se define un mapeo base (por ejemplo, /usuarios).
 ---->     NOTA:
-           - La anotación @RestController combina @Controller y @ResponseBody, lo que hace que los métodos retornen directamente objetos en formato JSON.
-           - @RequestMapping("/usuarios") define la ruta base.
-           - Cada método está mapeado a un endpoint específico usando anotaciones como @GetMapping, @PostMapping y @DeleteMapping.
-           - Se utiliza @PathVariable para capturar parámetros de la URL y @RequestBody para recibir datos en formato JSON.
+- La anotación @RestController combina @Controller y @ResponseBody, lo que hace que los métodos retornen directamente objetos en formato JSON.
+- @RequestMapping("/usuarios") define la ruta base.
+- Cada método está mapeado a un endpoint específico usando anotaciones como @GetMapping, @PostMapping y @DeleteMapping.
+- Se utiliza @PathVariable para capturar parámetros de la URL y @RequestBody para recibir datos en formato JSON.
 

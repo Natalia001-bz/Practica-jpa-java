@@ -2,7 +2,7 @@
 ---
 ### ✅ ***¡ Importante!***
 
-#### ► Nombre de bases de datos en mySQL - phpMyAdmin  →  bd_jpa
+#### ► Nombre de bases de datos en mySQL - phpMyAdmin  →   (nombre de la BaseDatos)  → bd_jpa
 ---
 #### ► Configuración para aplication.properties para este ejercicio:
 

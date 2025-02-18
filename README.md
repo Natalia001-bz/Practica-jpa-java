@@ -3,8 +3,9 @@
 ### ✅ ***¡ Importante!***
 
 #### ► Nombre de bases de datos en mySQL - phpMyAdmin  →  bd_jpa
+---
 #### ► Configuración para aplication.properties para este ejercicio:
-=============================================================================================
+
 spring.application.name=Jpa     
 spring.jpa.hibernate.ddl-auto=update
 spring.datasource.url=jdbc:mysql://localhost:3306/bd_jpa?useSSL=false&serverTimeZone=UTC
@@ -14,7 +15,7 @@ spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format_sql=true
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-============================================================================================
+
 ---->      NOTA:
            -  Línea 1 →  Jpa es el nombre del proyecto 
            -  Línea 2 →  Configuro update porque compara lo que hay en mi BD y actualiza las diferencias, si le pusiera create, reemplazaria lo que tengo en mi BD por lo que cree en mi proyecto cada vez.
